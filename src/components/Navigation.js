@@ -8,6 +8,7 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
+import { Link } from "react-router-dom";
 
 const Navigation = ({ setText, setRating }) => {
   return (
@@ -21,10 +22,16 @@ const Navigation = ({ setText, setRating }) => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">About</Nav.Link>
+            <Nav.Link href="#actionc1">
+              <Link to="/">Home</Link>
+            </Nav.Link>
+            <Nav.Link href="#action2">
+              <Link to="/about">about</Link>
+            </Nav.Link>
 
-            <Nav.Link href="#">Link</Nav.Link>
+            <Nav.Link href="#">
+              <Link to="/contact">contact</Link>
+            </Nav.Link>
           </Nav>
           <ReactStars
             count={5}

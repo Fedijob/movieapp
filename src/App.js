@@ -2,6 +2,10 @@ import "./App.css";
 import { useState } from "react";
 import Navigation from "./components/Navigation";
 import MovieList from "./components/MovieList";
+import Contact from "./components/Contact";
+import { Route, Routes } from "react-router-dom";
+import About from "./components/About";
+import Trailer from "./components/Trailer";
 
 function App() {
   const [text, setText] = useState("");
@@ -116,7 +120,22 @@ function App() {
   return (
     <div className="App">
       <Navigation setText={setText} setRating={setRating} />
-      <MovieList movies={movies} setMovies={setMovies} text={text} rating={rating} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <MovieList
+              movies={movies}
+              setMovies={setMovies}
+              text={text}
+              rating={rating}
+            />
+          }
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/trailer/:name" element={<Trailer movies={movies}/>} />
+      </Routes>
     </div>
   );
 }
